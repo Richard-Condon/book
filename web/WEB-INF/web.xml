@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>RegistServlet</servlet-name>
+        <servlet-class>lcd.web.RegistServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistServlet</servlet-name>
+        <url-pattern>/res</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>loginservlet</servlet-name>
+        <servlet-class>lcd.web.loginservlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginservlet</servlet-name>
+        <url-pattern>/los</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>lcd.web.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/us</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>Bookservlet</servlet-name>
+        <servlet-class>lcd.web.Bookservlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Bookservlet</servlet-name>
+        <url-pattern>/manager/bookservlet</url-pattern>
+    </servlet-mapping>
+
+
+
+
+    <servlet>
+        <servlet-name>ClientBookServlet</servlet-name>
+        <servlet-class>lcd.web.ClientBookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClientBookServlet</servlet-name>
+        <url-pattern>/client/bookservlet</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+
+    <!--用于生成验证码-->
+    <servlet>
+        <servlet-name>KaptchaServlet</servlet-name>
+        <servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>KaptchaServlet</servlet-name>
+        <url-pattern>/kaptcha.jpg</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>lcd.web.CartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/cs</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>lcd.web.OrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/os</url-pattern>
+    </servlet-mapping>
+
+
+    <filter>
+        <filter-name>ManagerFilter</filter-name>
+        <filter-class>lcd.filter.ManagerFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ManagerFilter</filter-name>
+        <url-pattern>/pages/manager/*</url-pattern>
+        <url-pattern>/pages/cart/*</url-pattern>
+        <url-pattern>/pages/order/*</url-pattern>
+        <url-pattern>/manager/bookservlet</url-pattern>
+    </filter-mapping>
+
+
+    <error-page>
+        <!--错误类型-->
+        <error-code>500</error-code>
+        <!--要跳转到的页面路径-->
+        <location>/pages/error/error500.jsp</location>
+    </error-page>
+
+
+
+    <error-page>
+        <!--错误类型-->
+        <error-code>404</error-code>
+        <!--要跳转到的页面路径-->
+        <location>/pages/error/error404.jsp</location>
+    </error-page>
+
+
+</web-app>
